@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://doemruvjkapwq"]
+
+[ext_resource type="Texture2D" uid="uid://dnx34s6rwl75" path="res://assets/PNG/Default size/Crates/crate_03.png" id="1_45xck"]
+[ext_resource type="Script" path="res://scene/box.gd" id="1_jikjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e3k0"]
+size = Vector2(63, 63)
+
+[node name="Box" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_jikjg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_45xck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6e3k0")
