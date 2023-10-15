@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ni5pq1fle8nj"]
+
+[ext_resource type="Script" path="res://scene/target.gd" id="1_p6wio"]
+[ext_resource type="Texture2D" uid="uid://ht238upcijff" path="res://assets/PNG/Default size/Environment/environment_05.png" id="2_ekjas"]
+[ext_resource type="Texture2D" uid="uid://c2uhasbmqkifx" path="res://assets/PNG/Default size/Environment/environment_10.png" id="3_hoist"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tu403"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ekjas")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hoist")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bija"]
+size = Vector2(32, 32)
+
+[node name="Target" type="Area2D"]
+script = ExtResource("1_p6wio")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tu403")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5bija")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
