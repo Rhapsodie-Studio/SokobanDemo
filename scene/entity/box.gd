@@ -35,4 +35,6 @@ func calculate_destination(direction: Vector2) -> Vector2:
 	
 
 func can_move(move_to: Vector2) -> bool:
-	return true
+	var future_transform = Transform2D(transform)
+	future_transform.origin = move_to
+	return not test_move(future_transform, Vector2.ZERO)

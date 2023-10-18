@@ -1,11 +1,12 @@
 extends Node2D
 
-
-@onready var environment = $Environment
-@onready var box = $Box
-@onready var target = $Target
-
+@onready var level_finish = $LevelFinish
+var level: Level
 
 func _ready():
-	box.initialize(environment)
-	target.initialize(environment)
+	level_finish.hide()
+	level = $Level1
+	level.level_complete.connect(_on_level_completed)
+	
+func _on_level_completed():
+	level_finish.showWith(level.level)
