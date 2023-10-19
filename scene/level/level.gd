@@ -25,4 +25,10 @@ func _on_target_pressed():
 	var all_pressed = targets.all(func (target: Target): return target.is_pressed)
 #	print(all_pressed)
 	if all_pressed:
+		var players = get_tree().get_nodes_in_group("player")
+		for player in players:
+			player.set_process(false)
+			player.set_physics_process(false)
+			player.set_process_input(false)
+#		set_physics_process(false)
 		emit_signal("level_complete")

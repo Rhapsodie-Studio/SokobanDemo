@@ -96,7 +96,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnp5y"]
 size = Vector2(42, 50)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_460o8")
 
